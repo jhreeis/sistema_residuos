@@ -9,7 +9,7 @@ from tkinter import ttk
 
 lista = []
 
-
+#Função que registra os resíduos
 def registroResiduo():
     massa = entryPeso.get()
     tipo = varTipo.get()
@@ -60,7 +60,7 @@ def registroResiduo():
           salvar(pa)
           messagebox.showinfo("Registro de resíduos", f"{massa}Kg de {tipo} registrado com sucesso!")  
    
-
+#Função que salva os resíduos na lista
 def salvar(obj):
     lista.append(obj)
 
@@ -70,6 +70,7 @@ def atualizarListbox():
         listbox.insert(tk.END, obj.mostrar())
 
 
+#Criação das janelas e seus elementos(botões, entradas e tabs)
 janela = tk.Tk()
 janela.title("Registro de Resíduos")
 janela.geometry("500x300")
@@ -92,7 +93,7 @@ tab2.grid_rowconfigure(0, weight=1)
 tab2.grid_columnconfigure(0, weight=1)
 
 janelinha.add(tab1, text="Registro")
-janelinha.add(tab2, text="Resíduos Recicláveis")
+janelinha.add(tab2, text="Resíduos")
 
 label1 = tk.Label(tab1, text="Massa(Kg):", font=("",15))
 label1.grid(row=0, column=0, sticky="w", padx=10)
@@ -110,11 +111,11 @@ tk.Radiobutton(tab1, text="Metal", font=("", 10), variable=varTipo, value="Metal
 tk.Radiobutton(tab1, text="Papel", font=("", 10), variable=varTipo, value="Papel").grid(row=6, column=1, sticky="w", padx=10)
 tk.Button(tab1, text="Registrar", font=("", 15), command=registroResiduo).grid(row=7, columnspan=2)
 
-################################################################################################################
+#Criação da lista de registro de resíduos
 listbox = tk.Listbox(tab2)
 listbox.config(font=("", 15))
 listbox.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
 tk.Button(tab2, text="Atualizar",font=("", 15), command=atualizarListbox).grid(row=1, column=0, sticky="nsew")
 
-
+#Função que impede que 
 janela.mainloop()

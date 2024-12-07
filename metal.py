@@ -13,5 +13,3 @@ class Metal(Residuo):
 
     def mostrar(self):
         return (f"Tipo: {self.getTipo()}; Massa: {self.getMassa()}Kg; Resíduo reciclável.")
-    
-
